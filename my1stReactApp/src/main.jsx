@@ -11,7 +11,7 @@ const anotherUser = "Sarvesh"
 // this creates a element which we can cal and return as jsx
 /*
 
-It is similar to how we created a custom element in createReact file
+It is similar to how we created a custom element in createReact 
 
 */
 const reactElement = React.createElement(
