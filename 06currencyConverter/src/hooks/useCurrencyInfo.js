@@ -5,15 +5,24 @@ function useCurrencyInfo(currency){
 
   const [data, setData] = useState({})
 
-  useEffect(() => {
-    fetch(`https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@2024-03-06/v1/currencies/${currency}.json`)
-    .then((res)=> res.json()) // changing res to json object
-    .then((res)=>setData(res[currency])) // then accesssing the currency field
-    console.log(data);
-    
-  }, [currency]); // i want to run this function when currency changes
-  console.log(data);  
-  return data;
+        useEffect(() => {
+          // Define an async function inside useEffect
+          const fetchCurrencyData = async () => {
+              try {
+                  const response = await fetch(`https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@2024-03-06/v1/currencies/${currency}.json`);
+                  const jsonData = await response.json(); // Convert response to JSON
+                  setData(jsonData[currency]); // Access the currency field and update the state
+                  console.log(jsonData[currency]); // Log the data to the console
+              } catch (error) {
+                  console.error('Error fetching currency data:', error);
+              }
+          };
+
+          fetchCurrencyData(); // Call the async function
+
+      }, [currency]);
+    console.log(data);  
+    return data;
 }
 
 

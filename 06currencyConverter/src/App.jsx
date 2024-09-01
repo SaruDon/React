@@ -3,7 +3,6 @@ import { InputBox } from "./components";
 import useCurrencyInfo from "./hooks/useCurrencyInfo";
 
 function App() {
-    // 1. Renamed 'amout' to 'amount' for consistency
     const [amount, setAmount] = useState(0);
     const [from, setFrom] = useState("usd");  //currency from 
     const [to, setTo] = useState("inr");      // currency to
@@ -43,7 +42,7 @@ function App() {
                         <div className="w-full mb-1">
                             <InputBox
                                 label="From"
-                                amount={amount} // 1. Updated 'amout' to 'amount'
+                                amount={amount} 
                                 onAmountChange={(amount) => setAmount(amount)} // 1. Updated 'amout' to 'amount'
                                 currencyOptions={options}
                                 onCurrencyChange={(currency) => setAmout(amount)} // 3. Removed array brackets to properly handle event
